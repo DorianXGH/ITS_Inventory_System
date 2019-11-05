@@ -34,5 +34,11 @@ Each folder contains the incoming requests, the incoming transfers, and the inco
 File naming scheme:
 (r/t/d)-[ID].xml
 
+Commands : 
 
-
+    "request [ID]" requests an item (do we allow messages ? if we do, ammending the message will consist of creating a duplicate, because of the mess of modifying a file without conflict)
+    "request (--accept/--deny) [ID]" accepts/deny a request (same question as above, but ammending won't be possible without a lot of mess, as answering a request deletes the request file)
+    "acknowledge [ID]" acknowledges a specific refusal
+    "acknowledge --all" acknowledges all refusals
+    "transfer [ID]" finishes a transfer between users (MUST check for refusal first for the command bellow to work)
+    "transfer --abort [ID]" creates a refusal file, and a transfer file going back to the original inventory, effectively aborting the transfer
