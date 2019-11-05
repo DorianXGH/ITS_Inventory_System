@@ -10,11 +10,29 @@ A notification system can be put in place by pulling modifications from the repo
 
 A user can accept or deny a request by use a "request [--accept/--deny] [request ID]" command "request [--accept/--deny]" will accept/deny the last one. Accepting a request denies all pending requests for the same item.
 
-Answering a request (manually or automatically) will delete the request file and create a response file, with its ID, remove the line corresponding to the item in the inventory, and put the item in a transfer file.
+Answering a request (manually or automatically) will delete the request file and create a response file, with its ID.
+If accepted, it will remove the line corresponding to the item in the inventory, and put the item in a transfer file.
+If desined, it will create a refusal file.
 
 Once the requesting user gets the item, he uses the command "transfer [transfer ID]", deleting the tranfer file and adding the line to his inventory.
+The user can clear his refusals by using the command "acknowledge [refusal ID]" or "acknowledge --all".
 
 The files are written in XML.
 
 IDs follow the UUID format, and as git, the first characters are sufficient if it leaves no ambiguity in the commands.
+
+Repo structure :
+- users
+    - [name]
+        - items.xml
+        - [requests]
+        - [transfers]
+        - [denied]
+
+Each folder contains the incoming requests, the incoming transfers, and the incoming refusals to facilitate eventual notification systems.
+
+File naming scheme:
+(r/t/d)-[ID].xml
+
+
 
