@@ -41,4 +41,4 @@ Commands :
     "acknowledge [ID]" acknowledges a specific refusal
     "acknowledge --all" acknowledges all refusals
     "transfer [ID]" finishes a transfer between users (MUST check for refusal first for the command bellow to work)
-    "transfer --abort [ID]" creates a refusal file, and a transfer file going back to the original inventory, effectively aborting the transfer
+    "transfer --abort ([ID]/[user]:[ID])" creates a refusal file, and a transfer file going back to the original inventory, effectively aborting the transfer
