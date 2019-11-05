@@ -1,1 +1,20 @@
-SPEC
+SPEC : 
+
+General use and basic principles :
+
+Each user has his own file storing each item he has, and if it is used, and what it is used for (XML)
+Each item has its unique ID
+
+When a user wants to request an item, he enters a "request [ID]" command. The programs find the user who has the item, and writes a request file, creating a request ID, commits it, and push it to the repo.
+A notification system can be put in place by pulling modifications from the repo
+
+A user can accept or deny a request by use a "request [--accept/--deny] [request ID]" command "request [--accept/--deny]" will accept/deny the last one. Accepting a request denies all pending requests for the same item.
+
+Answering a request (manually or automatically) will delete the request file and create a response file, with its ID, remove the line corresponding to the item in the inventory, and put the item in a transfer file.
+
+Once the requesting user gets the item, he uses the command "transfer [transfer ID]", deleting the tranfer file and adding the line to his inventory.
+
+The files are written in XML.
+
+IDs follow the UUID format, and as git, the first characters are sufficient if it leaves no ambiguity in the commands.
+
